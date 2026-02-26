@@ -1,0 +1,76 @@
+{
+  "categories": {
+    "AI": {
+      "keywords": ["ai", "llm", "gpt", "claude", "model", "neural", "ml", "machine learning",
+                    "inference", "training", "transformer", "embeddings", "openai", "anthropic",
+                    "gemini", "agent", "rag", "fine-tun"],
+      "emoji": "\ud83e\udde0",
+      "buttons": [
+        {"text": "\ud83d\udd2c Deep Dive", "action": "deepdive"},
+        {"text": "\ud83d\udcbe Save Notes", "action": "savenotes"},
+        {"text": "\u23ed Skip", "action": "skip"}
+      ]
+    },
+    "TECH": {
+      "keywords": ["api", "sdk", "rust", "python", "javascript", "typescript", "react",
+                    "docker", "kubernetes", "aws", "cloud", "database", "linux", "open source",
+                    "github", "deploy", "serverless", "infra", "devops", "cli", "npm"],
+      "emoji": "\ud83e\udd16",
+      "buttons": [
+        {"text": "\ud83d\udd2c Deep Dive", "action": "deepdive"},
+        {"text": "\ud83d\udcbe Save Notes", "action": "savenotes"},
+        {"text": "\u23ed Skip", "action": "skip"}
+      ]
+    },
+    "INTERESTING": {
+      "keywords": [],
+      "emoji": "\ud83d\udca1",
+      "buttons": [
+        {"text": "\ud83d\udd2c Deep Dive", "action": "deepdive"},
+        {"text": "\ud83d\udcbe Save Notes", "action": "savenotes"},
+        {"text": "\u23ed Skip", "action": "skip"}
+      ]
+    },
+    "GENERAL": {
+      "keywords": [],
+      "emoji": "\ud83d\udccc",
+      "buttons": [
+        {"text": "\ud83d\udccc Act on This", "action": "acton"},
+        {"text": "\ud83d\uddc4 File Away", "action": "fileaway"},
+        {"text": "\u23ed Skip", "action": "skip"}
+      ]
+    }
+  },
+  "digest": {
+    "max_items": 10,
+    "show_engagement": true,
+    "show_urls": true
+  },
+  "fetch": {
+    "max_bookmarks": 50,
+    "dedup_window": 2000
+  },
+  "engagement_threshold": 500,
+  "batch_size": 5,
+  "analysis_model": "opus",
+  "profile_path": "data/user-profile.json",
+  "max_analyze_per_run": 30,
+  "max_message_length": 4000,
+  "default_buttons": [
+    {"text": "\ud83d\udd2c Deep Dive", "action": "deepdive"},
+    {"text": "\ud83d\udcbe Save Notes", "action": "savenotes"},
+    {"text": "\u23ed Skip", "action": "skip"}
+  ],
+  "actions": {
+    "skip": {"status": "skipped", "response": "\u23ed Skipped.", "next": "none"},
+    "savenotes": {"status": "completed", "response": "\ud83d\udcbe Saving notes...", "next": "execute_now"},
+    "deepdive": {"status": "queued", "response": "\ud83d\udd2c Queued for deep dive.", "next": "queue_overnight"},
+    "backlog": {"status": "queued", "response": "\ud83d\udccb Added to backlog.", "next": "queue_overnight"},
+    "implement": {"status": "processing", "response": "\u26a1 Implementing now...", "next": "execute_now"},
+    "research": {"status": "processing", "response": "\ud83d\udcca Researching...", "next": "execute_now"},
+    "fileaway": {"status": "completed", "response": "\ud83d\uddc4 Filed away.", "next": "none"},
+    "fullsummary": {"status": "processing", "response": "\ud83d\udcdd Generating full summary...", "next": "execute_now"},
+    "acton": {"status": "processing", "response": "\ud83d\udccc Acting on this...", "next": "execute_now"},
+    "scaffold": {"status": "queued", "response": "\ud83d\udee0 Queued for scaffolding.", "next": "queue_overnight"}
+  }
+}

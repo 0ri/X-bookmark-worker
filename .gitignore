@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Runtime data
+data/*.db
+data/*.json
+!data/.gitkeep
+*.db
+*.tmp
+
+# User config (template is config.example.json)
+config.json
+user-profile.json
+
+# Data directory (contains runtime state)
+data/
+
+# Databases
+*.db
+*.db-wal
+*.db-shm
+
+# Environment
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Internal docs (not for GitHub)
+PRD.md
+COUNCIL-REVIEW.md
+COUNCIL_FIXES_APPLIED.md
+PHASE*_COMPLETE.md
+*_PHASE*.md

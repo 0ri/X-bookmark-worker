@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "bookmark-analysis-v1",
+  "type": "object",
+  "properties": {
+    "analyses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item_id": {
+            "type": "string",
+            "description": "SQLite row ID from the queue (e.g. 'bk_a7f3c2')"
+          },
+          "category": {
+            "type": "string",
+            "description": "Dynamic category inferred from content + user profile",
+            "examples": ["AI/Agents", "Health/Supplements", "Programming/Rust", "Startups"]
+          },
+          "why_bookmarked": {
+            "type": "string",
+            "maxLength": 200,
+            "description": "Inference of why the user bookmarked this, based on their profile"
+          },
+          "analysis": {
+            "type": "string",
+            "maxLength": 1000,
+            "description": "2-4 sentence deep analysis: key takeaway, relevance, actionability"
+          },
+          "relevance_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "How relevant to user's interests (0=noise, 1=must-act)"
+          },
+          "content_type": {
+            "type": "string",
+            "enum": ["tweet", "thread", "article", "video", "repo", "paper", "tool", "other"]
+          },
+          "buttons": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["dd", "im", "fc", "sn", "rm", "fs", "rs"]
+            },
+            "minItems": 1,
+            "maxItems": 5,
+            "description": "Contextual action buttons selected from the palette"
+          },
+          "needs_enrichment": {
+            "type": "boolean",
+            "description": "True if linked URL content should be fetched for deeper analysis"
+          },
+          "enrichment_urls": {
+            "type": "array",
+            "items": { "type": "string", "format": "uri" },
+            "description": "URLs to fetch via web_fetch for enrichment"
+          }
+        },
+        "required": ["item_id", "category", "analysis", "buttons", "content_type"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["analyses"],
+  "additionalProperties": false
+}
